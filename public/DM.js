@@ -1,8 +1,16 @@
-let buttons = document.getElementsByClassName('button');
+
+const buttons = document.getElementsByClassName('button');
 console.log(buttons)
-let function hitButton(button, key) {
-    
-}
+let audio = document.getElementById("soundBoom")
+
+
+window.addEventListener(document.getElementById("clickBoom").onclick, event => {
+    let audio = document.getElementById("soundBoom")
+    audio.play();
+    alert('sound!')
+});
+
+
 
 //1) подготовка
 //2) получение данных от пользователя
@@ -13,8 +21,8 @@ let function hitButton(button, key) {
  * у каждой клавиши есть класс button.
  * * они собраны в массив buttons.
  * К каждой клавише привязан звук и именная клавиша.
- 
- * когда именная клавиша или клавиша мыши нажата, 
+
+ * когда именная клавиша или клавиша мыши нажата,
  * соответствующая кнопка получает класс hittedButton
  */
 /*

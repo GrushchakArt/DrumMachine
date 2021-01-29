@@ -4,7 +4,7 @@ html {
     background-image: radial-gradient(gray, black);
 }
 
-.drum-main {
+.drum-main-container {
     display: flex;
     justify-content: center ;
 }

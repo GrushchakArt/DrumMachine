@@ -8,12 +8,12 @@
   <title>Drum Machine</title>
 </head>
 
-<body class="page"></body>
+<body class="page">
 <header class="page-header">
 </header>
 <main>
-  <div class="drum-main">
-    <div class="button boom"><span>1</span></div>
+  <div class="drum-main-container">
+    <div class="button boom" id="clickBoom"><span>1</span></div>
     <div class="button clap"><span>2</span></div>
     <div class="button hihat"><span>3</span></div>
     <div class="button kick"><span>4</span></div>
@@ -22,6 +22,9 @@
     <div class="button snare"><span>8</span></div>
     <div class="button tink"><span>9</span></div>
     <div class="button tom"><span>0</span></div>
+  </div>
+  <div class="sounds-container">
+    <audio src="/home/grushchakart/projects/DrumMachine/sounds/boom.wav" id="soundBoom"></audio>
   </div>
 </main>
 <footer class="page-footer">
