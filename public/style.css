@@ -23,7 +23,7 @@ html {
     user-select: none;
 }
 
-.button:active {
+.hitted {
     background-image:radial-gradient(blueviolet, lavender, blueviolet);
 }
 
