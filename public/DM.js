@@ -7,10 +7,10 @@ soundsArr = Array.from(sounds)
 
 document.addEventListener('keydown', function (event) {
     let hittedButton = this.querySelector('.hitted')
-    let hittedButtonText;
     let playable;
     console.log(hittedButton)
     if (hittedButton !== null) {
+        //убрать этот иф элс, он не нужен.
         hittedButton.classList.remove('hitted')
     } else {
         for (const button of buttons) {
