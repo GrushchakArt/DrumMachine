@@ -1,36 +1,38 @@
 
 const buttons = document.getElementsByClassName('button');
+buttonsArr = Array.from(buttons)
+console.log(buttons)
 const sounds = document.getElementsByClassName('sound');
-const drums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+soundsArr = Array.from(sounds)
 
 document.addEventListener('keydown', function (event) {
-    let hittedSound;
+    let hittedButton = this.querySelector('.hitted')
     let hittedButtonText;
-    for (const button of buttons) {
-        if (!button.classList.contains('hitted')) {
-            if (drums.includes(event.key) && event.key == button.textContent) {
-                hittedButtonText = button.textContent
-                console.log(button.classList)
-                button.classList.add('hitted')
-                console.log(button.classList)
-                console.log(hittedButtonText)
-            } else {
-                continue
-            }
-            for (const sound of sounds) {
-                if (hittedButtonText == sound.textContent) {
-                    sound.play()
-                    break
+    let playable;
+    console.log(hittedButton)
+    if (hittedButton !== null) {
+        hittedButton.classList.remove('hitted')
+    } else {
+        for (const button of buttons) {
+            if (!button.classList.contains('hitted')) {
+                if (event.key == button.textContent) {
+                    hittedButtonText = button.textContent
+                    button.classList.add('hitted')
                 } else {
                     continue
                 }
+                for (const sound of sounds) {
+                    if (hittedButtonText == sound.textContent) {
+                        playable = sound
+                        playable.play()
+                    }
+                }
             }
-        } else {
-            break
+            document.addEventListener('keyup', function (event) {
+                button.classList.remove('hitted')
+                playable.pause()
+                playable.currentTime = 0
+            })
         }
-        setTimeout(function () {
-            button.classList.remove('hitted')
-        }, 500)
-        return
     }
 });

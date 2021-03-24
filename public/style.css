@@ -24,7 +24,7 @@ html {
 }
 
 .hitted {
-    background-image:radial-gradient(blueviolet, lavender, blueviolet);
+    background-image:radial-gradient(#328dd8, lavender, #328dd8);
 }
 
 .button:nth-child(2), .button:nth-child(8) {
