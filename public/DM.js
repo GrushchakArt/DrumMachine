@@ -1,5 +1,5 @@
 //Собираем кнопки по классу и трансформируем в массив.
-const buttons = document.getElementsByClassName('button');
+const buttons = document.querySelectorAll('.button');
 buttonsArr = Array.from(buttons)
 console.log(buttons)
 
@@ -8,7 +8,7 @@ const sounds = document.getElementsByClassName('sound');
 soundsArr = Array.from(sounds)
 
 //Функция пробегается по массиву кнопок и ищет кнопку чей текст контент идентичен нажатой кнопке.
-function searchButton(event) {
+let searchButtonSound = (event) => {
     for (const button of buttons) {
         if (!button.classList.contains('hitted')) {
             if (event.key == button.textContent) {
@@ -17,18 +17,17 @@ function searchButton(event) {
             } else {
                 continue
             }
-            searchSound(hittedButtonText, button)
+            playButtonSound(hittedButtonText, button)
         }
     }
 }
 
 //Функция проигравает звук если переданный ей текст идентичен текст контенту звука.
-function searchSound(text, button) {
+let playButtonSound = (text, button) => {
     let playable;
     for (const sound of sounds) {
         if (text == sound.textContent) {
-            playable = sound
-            playable.play()
+            sound.play()
         }
     }
     //Функция ставит звук на паузу если переданная ей кнопка отжата. И мотает звук на начало.
@@ -41,13 +40,9 @@ function searchSound(text, button) {
 
 //Слушаем нажатие клавиши.
 //Кладем в hittedButton элемент с классоом .hitted
-//Проверяем если hittedButton не пустой то очищаем, иначе запускаем функцию searchButton
+//Проверяем если hittedButton не пустой то очищаем, иначе запускаем функцию searchButtonSound
 document.addEventListener('keydown', function (event) {
-    let hittedButton = this.querySelector('.hitted')
+    const hittedButton = this.querySelector('.hitted')
     console.log(hittedButton)
-    if (hittedButton !== null) {
-        hittedButton.classList.remove('hitted')
-    } else {
-        searchButton(event)
-    }
+    hittedButton ? hittedButton.classList.remove('hitted') : searchButtonSound(event)
 });
