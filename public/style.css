@@ -1,0 +1,46 @@
+html{
+    min-height: 100%;
+    /* без этого градиент повторяется на половине страницы вместо того чтобы занимать всю */
+}
+
+body {
+    min-height: 100%;
+    background-image: radial-gradient(lavender, black);
+}
+
+.drum-main-container {
+    display: flex;
+    justify-content: center ;
+}
+
+.button {
+    border: dotted gray 1px;
+    background-color: lavender;
+    font-size: 25px;
+    text-align: center;
+    line-height: 55px;
+    width: 60px;    
+    height: 60px;
+    border-radius: 20px;
+    margin: 30px;
+    margin-top: 20%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.hitted {
+    background-image:radial-gradient(#328dd8, lavender, #328dd8);
+}
+
+.button:nth-child(2), .button:nth-child(8) {
+    margin-top: 22%;
+}
+.button:nth-child(3), .button:nth-child(7) {
+    margin-top: 24%;
+}
+.button:nth-child(4), .button:nth-child(6) {
+    margin-top: 26%;
+}
+.button:nth-child(5) {
+    margin-top: 28%;
+}
